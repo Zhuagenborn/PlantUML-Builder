@@ -38,18 +38,18 @@
 [CmdletBinding()]
 param (
     [Parameter(ParameterSetName = 'Directory')]
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$Directory = '.',
 
     [Parameter(ParameterSetName = 'Directory')]
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$ScriptExtension = 'puml',
 
     [Parameter(ParameterSetName = 'Directory')]
     [switch]$Recurse,
 
     [Parameter(ParameterSetName = 'File', Mandatory)]
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$File,
 
     [ValidateSet('png', 'svg')]
@@ -63,7 +63,7 @@ param (
 function Format-Script {
     param (
         [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
+        [ValidateNotNullOrWhiteSpace()]
         [string]$Content
     )
 
@@ -78,11 +78,11 @@ function Format-Script {
 function Build-Script {
     param (
         [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
+        [ValidateNotNullOrWhiteSpace()]
         [string]$Content,
 
         [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
+        [ValidateNotNullOrWhiteSpace()]
         [string]$DiagramPath
     )
 
@@ -99,7 +99,7 @@ function Build-Script {
 function Build-File {
     param (
         [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
+        [ValidateNotNullOrWhiteSpace()]
         [System.IO.FileInfo]$Path,
 
         [ValidateSet('png', 'svg')]
